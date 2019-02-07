@@ -1,4 +1,5 @@
 # spectre-vue
+A library to use Spectre.css in Vue without an effort.
 
 ## Project setup
 ```

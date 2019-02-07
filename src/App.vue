@@ -1,28 +1,24 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <s-conatiner>
+    <s-row></s-row>
+    <s-row :gapless="true"></s-row>
+    <s-row :oneline="true"></s-row>
+  </s-conatiner>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import 'spectre.css/dist/spectre.min.css';
+import Row from './components/Row.vue';
+import Container from './components/Container.vue';
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld,
-  },
+    's-row': Row,
+    's-conatiner': Container
+  }
 };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
