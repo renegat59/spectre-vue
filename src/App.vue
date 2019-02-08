@@ -60,20 +60,19 @@
 </template>
 
 <script>
-import "spectre.css/dist/spectre.min.css";
-import Row from "./components/Row.vue";
-import Container from "./components/Container.vue";
-import Column from "./components/Column.vue";
+import 'spectre.css/dist/spectre.min.css';
+import Row from './components/Row.vue';
+import Container from './components/Container.vue';
+import Column from './components/Column.vue';
 
 export default {
   components: {
-    "s-row": Row,
-    "s-conatiner": Container,
-    "s-column": Column
-  }
+    's-row': Row,
+    's-conatiner': Container,
+    's-column': Column,
+  },
 };
 </script>
 
 <style>
 </style>
-
