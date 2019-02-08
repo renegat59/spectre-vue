@@ -1,23 +1,22 @@
 <template>
   <div
-    class="columns"
-    :class="{'col-gapless': gapless, 'col-oneline': oneline}">
-
+    :class="['columns', {'col-gapless': gapless, 'col-oneline': oneline}]">
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    gapless:{
+    gapless: {
       type: Boolean,
-      default: false
+      default: false,
     },
-    oneline:{
+    oneline: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 
