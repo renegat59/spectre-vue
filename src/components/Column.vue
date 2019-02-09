@@ -44,7 +44,7 @@ export default {
       if (this.columns === 'auto') return 'col-auto';
       // case number 1-12
       const columnsNumber = parseInt(this.columns, 10);
-      if (!Number.isNan(columnsNumber)) {
+      if (!Number.isNaN(columnsNumber)) {
         return this.columnNumberClass(columnsNumber);
       }
       // case of object with sizes
@@ -58,7 +58,7 @@ export default {
           colClass += 'col-auto';
         } else {
           const defaultColumnNumber = parseInt(this.columns[0], 10);
-          if (!Number.isNan(defaultColumnNumber)) {
+          if (!Number.isNaN(defaultColumnNumber)) {
             colClass += this.columnNumberClass(defaultColumnNumber);
           }
         }
