@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/renegat59/spectre-vue.svg?branch=master)](https://travis-ci.org/renegat59/spectre-vue)
+
 # spectre-vue
 A library to use Spectre.css in Vue without an effort.
 TODO: 
