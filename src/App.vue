@@ -18,7 +18,10 @@
     <s-row v-for="offset in ['l', 'r', 'x']" :key="offset">
       <s-column columns="6" class="bg-primary" :autoOffset="offset">6 cols</s-column>
     </s-row>
+    <s-row>
 
+    </s-row>
+<!--
     <s-row>
       <s-column
         :columns="{
@@ -54,6 +57,12 @@
       >Auto XS-2</s-column>
       <s-column columns="6">Col-6</s-column>
     </s-row>
+
+    <s-row>
+      <s-column
+      >Auto XS-2</s-column>
+      <s-column columns="6">Col-6</s-column>
+    </s-row> -->
 
     <h2>Responseive Grid</h2>
   </s-conatiner>
