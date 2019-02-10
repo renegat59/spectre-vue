@@ -48,14 +48,6 @@ export default {
     }
   },
   methods: {
-    columnNumberClass(cols) {
-      return cols > 0 && cols <= 12 ? `col-${cols}` : "";
-    },
-    columnSizesClass(screenSizeColumns) {
-      return Object.keys(screenSizeColumns)
-        .filter(size => screenSizes.indexOf(size) !== -1 || size === "auto")
-        .map(size => `col-${size}-${this.columns[size]}`);
-    }
   }
 };
 </script>
