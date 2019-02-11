@@ -6,63 +6,28 @@
       <s-column>12 cols</s-column>
     </s-row>
     <s-row :oneline="true">
-      <s-column columns="14">12 cols</s-column>
+      <s-column col="12">12 cols</s-column>
     </s-row>
     <s-row v-for="rowIndex in [12, 6, 4, 3, 2, 1]" :key="rowIndex">
       <s-column
-        :columns="rowIndex"
+        :col="rowIndex"
         v-for="colIndex in 12/rowIndex"
         :key="colIndex"
       >{{ rowIndex }} cols</s-column>
     </s-row>
     <s-row v-for="offset in ['l', 'r', 'x']" :key="offset">
-      <s-column columns="6" class="bg-primary" :autoOffset="offset">6 cols</s-column>
-    </s-row>
-    <s-row>
-
-    </s-row>
-<!--
-    <s-row>
-      <s-column
-        :columns="{
-        xs: 'auto',
-        sm: 'auto',
-        md: 'auto',
-        lg: 'auto',
-        xl: 'auto'
-      }"
-      >Auto col</s-column>
-      <s-column>Second Column</s-column>
+      <s-column col="6" class="bg-primary" :autoOffset="offset">6 cols</s-column>
     </s-row>
 
-    <s-row>
-      <s-column
-        :columns="{
-        lg: 'auto',
-        xs: 4
-      }"
-      >Auto col</s-column>
-      <s-column>Second Column</s-column>
-    </s-row>
-    <s-row>
-      <s-column
-        :columns="[4, {xs:2}]"
-      >Auto col</s-column>
-      <s-column columns="auto">Second Column</s-column>
-    </s-row>
+    <!-- I have to put the grid examples here -->
 
+    <h2>Hiding/Showing elements</h2>
     <s-row>
-      <s-column
-        :columns="['auto', {xs:2}]"
-      >Auto XS-2</s-column>
-      <s-column columns="6">Col-6</s-column>
+      <s-column col="3" v-show-on.xs>Col 1 Show only on XS</s-column>
+      <s-column col="3" v-show-on.sm>Col 2 Show on SM and XS</s-column>
+      <s-column col="3" v-show-on.md>Col 3 Show on XS, SM, MD</s-column>
+      <s-column col="3" v-show-on.lg.md.sm>Col 4 Show on XS, SM, MD and LG</s-column>
     </s-row>
-
-    <s-row>
-      <s-column
-      >Auto XS-2</s-column>
-      <s-column columns="6">Col-6</s-column>
-    </s-row> -->
 
     <h2>Responseive Grid</h2>
   </s-conatiner>

@@ -2,12 +2,12 @@
   <div
     :class="['column',
     autoOffsetClass,
-    this.col ? `col-${col}` : '',
-    this.xs ? `col-xs-${xs}` : '',
-    this.sm ? `col-sm-${sm}` : '',
-    this.md ? `col-md-${md}` : '',
-    this.lg ? `col-lg-${lg}` : '',
-    this.xl ? `col-xl-${xl}` : '',
+    col ? `col-${col}` : '',
+    xs ? `col-xs-${xs}` : '',
+    sm ? `col-sm-${sm}` : '',
+    md ? `col-md-${md}` : '',
+    lg ? `col-lg-${lg}` : '',
+    xl ? `col-xl-${xl}` : '',
   ]"
   >
     <slot></slot>
@@ -19,8 +19,10 @@ import { screenSizes, autoOffsets } from "../consts";
 
 const columnsTypedef = {
   type: [String, Number],
-  validator: value =>
-    value === "auto" || (Number.isInteger(value) && value > 0 && value <= 12)
+  validator: value => {
+    const intValue = parseInt(value);
+    return value === "auto" || (Number.isInteger(intValue) && intValue > 0 && intValue <= 12);
+  }
 };
 
 export default {
@@ -37,9 +39,7 @@ export default {
     lg: columnsTypedef,
     xl: columnsTypedef,
     autoOffset: {
-      validator(value) {
-        return autoOffsets.indexOf(value) !== -1;
-      }
+      validator: value => autoOffsets.indexOf(value) !== -1
     }
   },
   computed: {
@@ -47,8 +47,7 @@ export default {
       return this.autoOffset ? `col-m${this.autoOffset}-auto` : "";
     }
   },
-  methods: {
-  }
+  methods: {}
 };
 </script>
 
