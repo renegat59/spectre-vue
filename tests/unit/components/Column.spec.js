@@ -4,18 +4,23 @@ import { screenSizes, autoOffsets } from '@/consts';
 
 describe('Column.vue', () => {
 
-  it("Has class 'column'", () => {
-    const wrapper = shallowMount(Column);
-    expect(wrapper.classes()).toContain('column');
-  });
+  describe('basic Column rendering', () => {
+    let wrapper;
 
-  it("Has a default slot", () => {
-    const wrapper = shallowMount(Column, {
-      slots: {
-        default: '<p class="paragraph"></p>'
-      }
+    beforeAll(() => {
+      wrapper = shallowMount(Column, {
+        slots: {
+          default: '<p class="paragraph"></p>'
+        }
+      });
     });
-    expect(wrapper.findAll(".paragraph").length).toBe(1);
+    it("Has class 'column'", () => {
+      expect(wrapper.classes()).toContain('column');
+    });
+
+    it("Has a default slot", () => {
+      expect(wrapper.findAll(".paragraph").length).toBe(1);
+    });
   });
 
   it("Has 'col' property to set number of columns'", () => {
@@ -39,9 +44,9 @@ describe('Column.vue', () => {
   it("Has properties xs, sm, md, lg and xl to set number of columns in different screen sizes'", () => {
     screenSizes.map((size, index) => {
       let propsData = {};
-      propsData[size] = index+1;
+      propsData[size] = index + 1;
       const wrapper = shallowMount(Column, { propsData });
-      expect(wrapper.classes()).toContain(`col-${size}-${index+1}`);
+      expect(wrapper.classes()).toContain(`col-${size}-${index + 1}`);
     });
   });
 

@@ -30,6 +30,23 @@
     </s-row>
 
     <h2>Responseive Grid</h2>
+    <s-row>
+      <s-column>
+        <s-hero class="bg-dark">
+          <h1>Title</h1>
+          <p>
+            Some paragraph in Hero
+          </p>
+        </s-hero>
+      </s-column>
+    </s-row>
+    <s-navbar>
+      Header Navbar
+    </s-navbar>
+
+    <s-navbar tag="section">
+
+    </s-navbar>
   </s-conatiner>
 </template>
 
@@ -38,12 +55,16 @@ import 'spectre.css/dist/spectre.min.css';
 import Row from './components/Row.vue';
 import Container from './components/Container.vue';
 import Column from './components/Column.vue';
+import Hero from './components/Hero.vue';
+import Navbar from './components/Navbar.vue';
 
 export default {
   components: {
     's-row': Row,
     's-conatiner': Container,
     's-column': Column,
+    's-hero': Hero,
+    's-navbar': Navbar
   },
 };
 </script>
