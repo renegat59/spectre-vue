@@ -1,15 +1,9 @@
 <template>
-  <div
-    :class="['column',
+  <div :class="['column',
     autoOffsetClass,
     col ? `col-${col}` : '',
-    xs ? `col-xs-${xs}` : '',
-    sm ? `col-sm-${sm}` : '',
-    md ? `col-md-${md}` : '',
-    lg ? `col-lg-${lg}` : '',
-    xl ? `col-xl-${xl}` : '',
-  ]"
-  >
+    ...colClasses
+  ]">
     <slot></slot>
   </div>
 </template>
@@ -21,7 +15,10 @@ const columnsTypedef = {
   type: [String, Number],
   validator: value => {
     const intValue = parseInt(value);
-    return value === "auto" || (Number.isInteger(intValue) && intValue > 0 && intValue <= 12);
+    return (
+      value === "auto" ||
+      (Number.isInteger(intValue) && intValue > 0 && intValue <= 12)
+    );
   }
 };
 
@@ -45,6 +42,11 @@ export default {
   computed: {
     autoOffsetClass() {
       return this.autoOffset ? `col-m${this.autoOffset}-auto` : "";
+    },
+    colClasses() {
+      return screenSizes
+        .map(size => (size ? `col-${size}-${this[size]}` : ""))
+        .filter(el => el != "");
     }
   },
   methods: {}

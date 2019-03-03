@@ -62,5 +62,4 @@ describe('Column.vue', () => {
       expect(wrapper.classes()).toContain(`col-m${autoOffset}-auto`);
     })
   });
-
 });
