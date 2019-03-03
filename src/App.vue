@@ -9,18 +9,13 @@
       <s-column col="12">12 cols</s-column>
     </s-row>
     <s-row v-for="rowIndex in [12, 6, 4, 3, 2, 1]" :key="rowIndex">
-      <s-column
-        :col="rowIndex"
-        v-for="colIndex in 12/rowIndex"
-        :key="colIndex"
-      >{{ rowIndex }} cols</s-column>
+      <s-column :col="rowIndex" v-for="colIndex in 12/rowIndex" :key="colIndex">{{ rowIndex }} cols</s-column>
     </s-row>
     <s-row v-for="offset in ['l', 'r', 'x']" :key="offset">
       <s-column col="6" class="bg-primary" :autoOffset="offset">6 cols</s-column>
     </s-row>
 
     <!-- I have to put the grid examples here -->
-
     <h2>Hiding/Showing elements</h2>
     <s-row>
       <s-column col="3" v-show-on.xs>Col 1 Show only on XS</s-column>
@@ -34,38 +29,43 @@
       <s-column>
         <s-hero class="bg-dark">
           <h1>Title</h1>
-          <p>
-            Some paragraph in Hero
-          </p>
+          <p>Some paragraph in Hero</p>
         </s-hero>
       </s-column>
     </s-row>
-    <s-navbar>
-      Header Navbar
-    </s-navbar>
 
     <s-navbar tag="section">
-
+      <s-navbar-section>
+        <a href="#" class="btn btn-link">Docs</a>
+        <a href="#" class="btn btn-link">Examples</a>
+      </s-navbar-section>
+      <s-navbar-section center>LOGO</s-navbar-section>
+      <s-navbar-section>
+        <a href="#" class="btn btn-link">Twitter</a>
+        <a href="#" class="btn btn-link">GitHub</a>
+      </s-navbar-section>
     </s-navbar>
   </s-conatiner>
 </template>
 
 <script>
-import 'spectre.css/dist/spectre.min.css';
-import Row from './components/Row.vue';
-import Container from './components/Container.vue';
-import Column from './components/Column.vue';
-import Hero from './components/Hero.vue';
-import Navbar from './components/Navbar.vue';
+import "spectre.css/dist/spectre.min.css";
+import Row from "./components/Row.vue";
+import Container from "./components/Container.vue";
+import Column from "./components/Column.vue";
+import Hero from "./components/Hero.vue";
+import Navbar from "./components/Navbar.vue";
+import NavbarSection from "./components/NavbarSection.vue";
 
 export default {
   components: {
-    's-row': Row,
-    's-conatiner': Container,
-    's-column': Column,
-    's-hero': Hero,
-    's-navbar': Navbar
-  },
+    "s-row": Row,
+    "s-conatiner": Container,
+    "s-column": Column,
+    "s-hero": Hero,
+    "s-navbar": Navbar,
+    "s-navbar-section": NavbarSection
+  }
 };
 </script>
 

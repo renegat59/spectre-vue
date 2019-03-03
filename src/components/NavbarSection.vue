@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag">
+  <component :is="tag" :class="[center ? 'navbar-center' : 'navbar-section']">
     <slot></slot>
   </component>
 </template>
@@ -10,10 +10,12 @@ export default {
     tag: {
       type: String,
       default: "section"
+    },
+    center: {
+      type: Boolean,
+      default: false
     }
   }
 };
 </script>
 
-<style>
-</style>
