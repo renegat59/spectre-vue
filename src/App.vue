@@ -45,6 +45,9 @@
         <a href="#" class="btn btn-link">GitHub</a>
       </s-navbar-section>
     </s-navbar>
+    <div v-color:bg="color">
+      Hello world <button @click="color='error'">To error</button>
+    </div>
   </s-conatiner>
 </template>
 
@@ -58,6 +61,11 @@ import Navbar from "./components/Navbar.vue";
 import NavbarSection from "./components/NavbarSection.vue";
 
 export default {
+  data() {
+    return {
+      color: 'warning'
+    }
+  },
   components: {
     "s-row": Row,
     "s-conatiner": Container,
