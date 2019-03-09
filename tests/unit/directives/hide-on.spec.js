@@ -1,11 +1,12 @@
 import Vue from 'vue';
 import '@/directives';
+import {shallowMount} from '@vue/test-utils';
 
 describe('Directive v-hide-on', () => {
   it('should hide on XS', () => {
-    const vm = new Vue({
-      template: '<div><span v-hide-on.xs>hello</span></div>',
-    }).$mount();
-    expect(vm.$el.innerHTML).toBe('<span class="hide-xs">hello</span>');
+    const wrapper = shallowMount({
+      template: '<div v-hide-on.xs>hello</div>'
+    });
+    expect(wrapper.classes()).toContain('hide-xs');
   });
 });
