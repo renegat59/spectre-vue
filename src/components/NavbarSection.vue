@@ -9,13 +9,12 @@ export default {
   props: {
     tag: {
       type: String,
-      default: "section"
+      default: 'section',
     },
     center: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
-

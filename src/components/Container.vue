@@ -8,13 +8,14 @@
 </template>
 
 <script>
-import { screenSizes } from "../consts";
+import { screenSizes } from '../consts';
+
 export default {
   props: {
     grid: {
       type: String,
-      validator: value => screenSizes.indexOf(value) !== -1
-    }
-  }
+      validator: value => screenSizes.indexOf(value) !== -1,
+    },
+  },
 };
 </script>

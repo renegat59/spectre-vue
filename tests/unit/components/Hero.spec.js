@@ -2,14 +2,13 @@ import Hero from '@/components/Hero.vue';
 import { shallowMount } from '@vue/test-utils';
 
 describe('Hero.vue', () => {
-
   describe('basic Hero rendering', () => {
     let wrapper;
     beforeAll(() => {
       wrapper = shallowMount(Hero, {
         slots: {
-          default: '<p>Hero Paragraph</p>'
-        }
+          default: '<p>Hero Paragraph</p>',
+        },
       });
     });
 
@@ -17,16 +16,16 @@ describe('Hero.vue', () => {
       expect(wrapper.classes()).toContain('hero');
     });
 
-    it("Has a default slot", () => {
-      expect(wrapper.findAll("p").length).toBe(1);
+    it('Has a default slot', () => {
+      expect(wrapper.findAll('p').length).toBe(1);
     });
   });
 
-  it("Accepts size prop and sets the appropriate class", () => {
+  it('Accepts size prop and sets the appropriate class', () => {
     const wrapper = shallowMount(Hero, {
       propsData: {
-        size: 'lg'
-      }
+        size: 'lg',
+      },
     });
     expect(wrapper.classes()).toContain('hero-lg');
   });
@@ -39,5 +38,4 @@ describe('Hero.vue', () => {
   //   });
   //   expect(wrapper.classes()).not.toContain('hero-not-supported');
   // });
-
 });

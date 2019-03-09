@@ -9,8 +9,8 @@ export default {
   props: {
     tag: {
       type: String,
-      default: "header"
-    }
-  }
+      default: 'header',
+    },
+  },
 };
 </script>

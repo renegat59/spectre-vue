@@ -2,14 +2,13 @@ import Navbar from '@/components/Navbar.vue';
 import { shallowMount } from '@vue/test-utils';
 
 describe('Navbar.vue', () => {
-
   describe('basic Navbar rendegring', () => {
     let wrapper;
     beforeAll(() => {
-      wrapper = wrapper = shallowMount(Navbar, {
+      wrapper = shallowMount(Navbar, {
         slots: {
-          default: '<section class="navbar-section"></section>'
-        }
+          default: '<section class="navbar-section"></section>',
+        },
       });
     });
 
@@ -17,19 +16,17 @@ describe('Navbar.vue', () => {
       expect(wrapper.classes()).toContain('navbar');
     });
 
-    it("Has a default slot", () => {
-      expect(wrapper.findAll(".navbar-section").length).toBe(1);
+    it('Has a default slot', () => {
+      expect(wrapper.findAll('.navbar-section').length).toBe(1);
     });
-
   });
 
   it("Has a 'tag' prop to set the navbar HTML tag", () => {
     const wrapper = shallowMount(Navbar, {
       propsData: {
-        tag: 'div'
-      }
+        tag: 'div',
+      },
     });
     expect(wrapper.element.nodeName).toBe('DIV');
   });
-
 });

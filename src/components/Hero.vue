@@ -9,17 +9,17 @@
 <script>
 const sizeValidator = {
   type: String,
-  validator: value => ["sm", "lg"].indexOf(value) !== -1
+  validator: value => ['sm', 'lg'].indexOf(value) !== -1,
 };
 
 export default {
   props: {
-    size: sizeValidator
+    size: sizeValidator,
   },
   computed: {
     sizeClass() {
-      return sizeValidator.validator(this.size) ? `hero-${this.size}` : "";
-    }
-  }
+      return sizeValidator.validator(this.size) ? `hero-${this.size}` : '';
+    },
+  },
 };
 </script>

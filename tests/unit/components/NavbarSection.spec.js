@@ -7,8 +7,8 @@ describe('NavbarSection.vue', () => {
     beforeAll(() => {
       wrapper = shallowMount(NavbarSection, {
         slots: {
-          default: '<a href="#">Link</a>'
-        }
+          default: '<a href="#">Link</a>',
+        },
       });
     });
 
@@ -16,17 +16,16 @@ describe('NavbarSection.vue', () => {
       expect(wrapper.classes()).toContain('navbar-section');
     });
 
-    it("Has a default slot", () => {
-      expect(wrapper.findAll("a").length).toBe(1);
+    it('Has a default slot', () => {
+      expect(wrapper.findAll('a').length).toBe(1);
     });
-
   });
 
   it("Has a 'tag' prop to set the navbar section HTML tag", () => {
     const wrapper = shallowMount(NavbarSection, {
       propsData: {
-        tag: 'div'
-      }
+        tag: 'div',
+      },
     });
     expect(wrapper.element.nodeName).toBe('DIV');
   });
@@ -34,10 +33,9 @@ describe('NavbarSection.vue', () => {
   it("Has a 'center' boolean prop to set the section in the center", () => {
     const wrapper = shallowMount(NavbarSection, {
       propsData: {
-        center: true
-      }
+        center: true,
+      },
     });
     expect(wrapper.findAll('.navbar-center').length).toBe(1);
   });
-
 });

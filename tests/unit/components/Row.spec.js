@@ -7,8 +7,8 @@ describe('Row.vue', () => {
     beforeAll(() => {
       wrapper = shallowMount(Row, {
         slots: {
-          default: '<div class="column"></div>'
-        }
+          default: '<div class="column"></div>',
+        },
       });
     });
 
@@ -16,10 +16,8 @@ describe('Row.vue', () => {
       expect(wrapper.classes()).toContain('columns');
     });
 
-    it("Has a default slot", () => {
-      expect(wrapper.findAll(".column").length).toBe(1);
+    it('Has a default slot', () => {
+      expect(wrapper.findAll('.column').length).toBe(1);
     });
-
   });
-
 });

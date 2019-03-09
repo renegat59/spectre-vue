@@ -12,7 +12,7 @@ module.exports = {
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
-    "^vue$": "vue/dist/vue.common.js"
+    '^vue$': 'vue/dist/vue.common.js',
   },
   snapshotSerializers: [
     'jest-serializer-vue',
@@ -20,5 +20,5 @@ module.exports = {
   testMatch: [
     '**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)',
   ],
-  testURL: 'http://localhost/'
+  testURL: 'http://localhost/',
 };
