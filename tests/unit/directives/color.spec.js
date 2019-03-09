@@ -1,60 +1,60 @@
 import Vue from 'vue';
 import '@/directives';
+import { createWrapper, shallowMount } from '@vue/test-utils';
 
 describe('Directive v-color', () => {
+
+
   it('should append the bg-color class', () => {
-    const vm = new Vue({
-      template: '<div><span v-color:bg="\'warning\'" class="test">hello</span></div>',
-    }).$mount();
-    expect(vm.$el.innerHTML).toBe('<span class="test bg-warning">hello</span>');
+    const wrapper = shallowMount({
+      template: '<div v-color:bg="\'warning\'" class="test">hello</div>'
+    });
+    expect(wrapper.classes()).toContain('bg-warning');
+    expect(wrapper.classes()).toContain('test');
   });
 
   it('should add the text-color class', () => {
-    const vm = new Vue({
-      template: '<div><span v-color:text="\'error\'">hello</span></div>',
-    }).$mount();
-    expect(vm.$el.innerHTML).toBe('<span class="text-error">hello</span>');
+    const wrapper = shallowMount({
+      template: '<div v-color:text="\'error\'" class="test">hello</div>'
+    });
+    expect(wrapper.classes()).toContain('text-error');
+    expect(wrapper.classes()).toContain('test');
   });
 
   it('should ignore inexisting colors', () => {
-    const vm = new Vue({
-      template: '<div><span v-color:text="\'sth\'">hello</span></div>',
-    }).$mount();
-    expect(vm.$el.innerHTML).toBe('<span>hello</span>');
+    const wrapper = shallowMount({
+      template: '<div v-color:text="\'sth\'">hello</div>'
+    });
+    expect(wrapper.classes()).toEqual([]);
   });
 
   it('should ignore wrong args', () => {
-    const vm = new Vue({
-      template: '<div><span v-color:sth="\'error\'">hello</span></div>',
-    }).$mount();
-    expect(vm.$el.innerHTML).toBe('<span>hello</span>');
+    const wrapper = shallowMount({
+      template: '<div v-color:sth="\'error\'">hello</div>'
+    });
+    expect(wrapper.classes()).toEqual([]);
   });
 
   it('should by default set the text color if no arg is set', () => {
-    const vm = new Vue({
-      template: '<div><span v-color="\'error\'">hello</span></div>',
-    }).$mount();
-    expect(vm.$el.innerHTML).toBe('<span class="text-error">hello</span>');
+    const wrapper = shallowMount({
+      template: '<div v-color="\'error\'">hello</div>'
+    });
+    expect(wrapper.classes()).toContain('text-error');
   });
 
 
-  // Reactivity not working here...
-  // TODO: try to write the test for changing the color
   it('should change the color when bound variable is changed', () => {
-    const data = {
-      color: 'error',
-    };
-    const vm = new Vue({
-      template: '<div><span v-color:bg="color">hello</span></div>',
-      data,
-    }).$mount();
-    expect(vm.$el.innerHTML).toBe('<span class="bg-error">hello</span>');
-    // vm.color='success';
-    // vm.$forceUpdate();
-    // console.log(vm);
-    // vm.set('color', 'success');
-    Vue.set(vm, 'color', 'success');
-    console.log(vm.color, vm.$el.innerHTML);
-    expect(vm.$el.innerHTML).toBe('<span class="bg-success">hello</span>');
+    const wrapper = shallowMount({
+      template: '<div v-color:bg="color">hello</div>',
+      data: () => {
+        return {
+          color: 'error'
+        }
+      }
+    });
+    expect(wrapper.classes()).toContain('bg-error');
+    wrapper.setData({color: 'success'});
+    expect(wrapper.classes()).toContain('bg-success');
+    expect(wrapper.classes()).not.toContain('bg-error');
   });
 });
