@@ -4,7 +4,7 @@ import { shallowMount } from '@vue/test-utils';
 describe('Directive v-cursor', () => {
   it('Should get the appropriate c-* class', () => {
     const wrapper = shallowMount({
-      template: '<div v-cursor="\'hand\'" class="test">hello</div>'
+      template: '<div v-cursor="\'hand\'" class="test">hello</div>',
     });
 
     expect(wrapper.classes()).toContain('c-hand');
@@ -12,7 +12,7 @@ describe('Directive v-cursor', () => {
 
   it('Should only allow the available cursors and ignore unknown', () => {
     const wrapper = shallowMount({
-      template: '<div v-cursor="\'foo\'" class="test">hello</div>'
+      template: '<div v-cursor="\'foo\'" class="test">hello</div>',
     });
     expect(wrapper.classes()).toEqual(['test']);
   });
@@ -21,11 +21,9 @@ describe('Directive v-cursor', () => {
   it('should change the cursor when bound variable is changed', () => {
     const wrapper = shallowMount({
       template: '<div v-cursor="cursor">hello</div>',
-      data: () => {
-        return {
-          cursor: 'hand'
-        }
-      }
+      data: () => ({
+        cursor: 'hand',
+      }),
     });
     expect(wrapper.classes()).toContain('c-hand');
     wrapper.setData({ cursor: 'not-allowed' });

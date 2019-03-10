@@ -16,8 +16,8 @@ Vue.directive('color', {
       const type = binding.arg || 'text';
       if (['bg', 'text'].indexOf(type) !== -1
         && colors.indexOf(binding.value) !== -1) {
-        el.classList.remove(`${type}-${binding.oldValue}`);
         el.classList.add(`${type}-${binding.value}`);
+        el.classList.remove(`${type}-${binding.oldValue}`);
       }
     }
   },
