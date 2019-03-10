@@ -6,7 +6,6 @@ import Loading from './loading';
 import Text from './text';
 import Shape from './shape';
 
-// there is nothing really to export...
 export default {
-  ShowOn, HideOn, Color, Cursor, Loading, Text, Shape,
+  ShowOn, HideOn, Color, Cursor, Loading, Text, Shape
 };
