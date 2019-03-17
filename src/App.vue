@@ -50,36 +50,57 @@
         <a href="#" class="btn btn-link">GitHub</a>
       </s-navbar-section>
     </s-navbar>
+
     <div v-color:bg="color">
       Hello world
-      <button @click="color='error'">To error</button>
+      <button @click="color='error'">Change to error</button>
     </div>
+
+    <s-row>
+      <s-column>
+        <button class="btn ml-1">Submit</button>
+        <a class="btn ml-1" href="#">Hello</a>
+        <a href="https://www.paypal.me/picturepan2" class="btn ml-1" target="_blank">Hello</a>
+        <input type="submit" value="Submit" class="btn ml-1">
+        <input type="button" value="Submit" class="btn ml-1">
+      </s-column>
+    </s-row>
+
+    <s-row>
+      <s-column>
+        <s-button class="ml-1">Submit button</s-button>
+        <s-button tag="a" class="ml-1" to="">Link button</s-button>
+        <s-button tag="input" class="ml-1" to="">Input type</s-button>
+      </s-column>
+    </s-row>
   </s-conatiner>
 </template>
 
 <script>
-import 'spectre.css/dist/spectre.min.css';
-import Row from './components/Row.vue';
-import Container from './components/Container.vue';
-import Column from './components/Column.vue';
-import Hero from './components/Hero.vue';
-import Navbar from './components/Navbar.vue';
-import NavbarSection from './components/NavbarSection.vue';
+import "spectre.css/dist/spectre.min.css";
+import Row from "./components/Row.vue";
+import Container from "./components/Container.vue";
+import Column from "./components/Column.vue";
+import Hero from "./components/Hero.vue";
+import Navbar from "./components/Navbar.vue";
+import NavbarSection from "./components/NavbarSection.vue";
+import Button from "./components/Button.vue";
 
 export default {
   data() {
     return {
-      color: 'warning',
+      color: "warning"
     };
   },
   components: {
-    's-row': Row,
-    's-conatiner': Container,
-    's-column': Column,
-    's-hero': Hero,
-    's-navbar': Navbar,
-    's-navbar-section': NavbarSection,
-  },
+    "s-row": Row,
+    "s-conatiner": Container,
+    "s-column": Column,
+    "s-hero": Hero,
+    "s-navbar": Navbar,
+    "s-navbar-section": NavbarSection,
+    "s-button": Button
+  }
 };
 </script>
 

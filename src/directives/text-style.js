@@ -6,5 +6,5 @@ Vue.directive('text-style', {
     Object.keys(binding.modifiers)
       .filter(modifier => textStyles.indexOf(modifier) !== -1)
       .forEach(modifier => el.classList.add(`text-${modifier}`));
-  }
+  },
 });

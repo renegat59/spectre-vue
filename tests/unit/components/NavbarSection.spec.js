@@ -27,7 +27,7 @@ describe('NavbarSection.vue', () => {
         tag: 'div',
       },
     });
-    expect(wrapper.element.nodeName).toBe('DIV');
+    expect(wrapper.is('div')).toBe(true);
   });
 
   it("Has a 'center' boolean prop to set the section in the center", () => {
