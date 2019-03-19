@@ -73,6 +73,13 @@
         <s-button tag="input" class="ml-1" to="">Input type</s-button>
       </s-column>
     </s-row>
+    <s-row>
+      <s-column>
+        <s-button success>Success button</s-button>
+        <s-button error>Error button</s-button>
+        <s-button primary :error="err" @click="console.log('hi');">Error button</s-button>
+      </s-column>
+    </s-row>
   </s-conatiner>
 </template>
 
@@ -89,8 +96,15 @@ import Button from "./components/Button.vue";
 export default {
   data() {
     return {
-      color: "warning"
+      color: "warning",
+      err: false
     };
+  },
+  methods: {
+    setError() {
+      console.log(this.err);
+      this.err = true;
+    }
   },
   components: {
     "s-row": Row,
@@ -99,8 +113,8 @@ export default {
     "s-hero": Hero,
     "s-navbar": Navbar,
     "s-navbar-section": NavbarSection,
-    "s-button": Button
-  }
+    "s-button": Button,
+  },
 };
 </script>
 
