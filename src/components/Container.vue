@@ -9,12 +9,13 @@
 
 <script>
 import { screenSizes } from '../consts';
+import { inArray } from '../utils/validators';
 
 export default {
   props: {
     grid: {
       type: String,
-      validator: value => screenSizes.indexOf(value) !== -1,
+      validator: value => inArray(value, screenSizes),
     },
   },
 };

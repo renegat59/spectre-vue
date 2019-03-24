@@ -13,6 +13,7 @@
 
 <script>
 import { screenSizes, autoOffsets } from '../consts';
+import { inArray } from '../utils/validators';
 
 const columnsTypedef = {
   type: [String, Number],
@@ -39,7 +40,7 @@ export default {
     lg: columnsTypedef,
     xl: columnsTypedef,
     autoOffset: {
-      validator: value => autoOffsets.indexOf(value) !== -1,
+      validator: value => inArray(value, autoOffsets),
     },
   },
   computed: {

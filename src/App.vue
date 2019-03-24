@@ -69,51 +69,54 @@
     <s-row>
       <s-column>
         <s-button class="ml-1">Submit button</s-button>
-        <s-button tag="a" class="ml-1" to="">Link button</s-button>
-        <s-button tag="input" class="ml-1" to="">Input type</s-button>
+        <s-button tag="a" class="ml-1" href="/">Link button</s-button>
+        <s-button tag="input" class="ml-1">Input type</s-button>
       </s-column>
     </s-row>
     <s-row>
       <s-column>
         <s-button success>Success button</s-button>
         <s-button error>Error button</s-button>
-        <s-button primary :error="err" @click="console.log('hi');">Error button</s-button>
+        <s-button primary :error="err" @click="onClick">Error button</s-button>
       </s-column>
     </s-row>
   </s-conatiner>
 </template>
 
 <script>
-import "spectre.css/dist/spectre.min.css";
-import Row from "./components/Row.vue";
-import Container from "./components/Container.vue";
-import Column from "./components/Column.vue";
-import Hero from "./components/Hero.vue";
-import Navbar from "./components/Navbar.vue";
-import NavbarSection from "./components/NavbarSection.vue";
-import Button from "./components/Button.vue";
+import 'spectre.css/dist/spectre.min.css';
+import Row from './components/Row.vue';
+import Container from './components/Container.vue';
+import Column from './components/Column.vue';
+import Hero from './components/Hero.vue';
+import Navbar from './components/Navbar.vue';
+import NavbarSection from './components/NavbarSection.vue';
+import Button from './components/Button.vue';
 
 export default {
   data() {
     return {
-      color: "warning",
-      err: false
+      color: 'warning',
+      err: false,
     };
   },
   methods: {
     setError() {
       console.log(this.err);
       this.err = true;
-    }
+    },
+    onClick() {
+      console.log('Click fired');
+    },
   },
   components: {
-    "s-row": Row,
-    "s-conatiner": Container,
-    "s-column": Column,
-    "s-hero": Hero,
-    "s-navbar": Navbar,
-    "s-navbar-section": NavbarSection,
-    "s-button": Button,
+    's-row': Row,
+    's-conatiner': Container,
+    's-column': Column,
+    's-hero': Hero,
+    's-navbar': Navbar,
+    's-navbar-section': NavbarSection,
+    's-button': Button,
   },
 };
 </script>

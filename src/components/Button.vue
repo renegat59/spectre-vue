@@ -2,6 +2,7 @@
   <component
     v-if="tag !== 'input'"
     :is="tag"
+    :href="tag === 'a' ? this.href : null"
     :class="[
     'btn',
     typeClass,
@@ -9,56 +10,62 @@
     formClass,
     stateClasses
   ]"
+    v-on="buttonListeners"
   >
     <slot></slot>
   </component>
-  <input v-else :class="[
+  <input
+    v-else
+    :class="[
     'btn',
     typeClass,
     sizeClass,
     formClass,
     stateClasses
-  ]" :type="inputType" :value="inputValue">
+  ]"
+    :type="inputType"
+    :value="inputValue"
+    v-on="buttonListeners"
+  >
 </template>
 
 <script>
-const buttonTypes = ["primary", "link", "success", "error"];
-const buttonSizes = ["lg", "sm"];
-const buttonForms = ["block", "action"];
-
 // A. <button>Submit</button>
 // B. <a href="#">Submit</a>
 // C. <input type="submit" />
+
+import { isArray } from '../utils/validators';
+
 export default {
   props: {
     type: {
       type: String,
-      validator: value => buttonTypes.indexOf(value) !== -1
+      validator: value => inArray(value, ['primary', 'link', 'success', 'error']),
     },
     size: {
       type: String,
-      validator: value => buttonSizes.indexOf(value) !== -1
+      validator: value => inArray(value, ['lg', 'sm']),
     },
     form: {
       type: String,
-      validator: value => buttonForms.indexOf(value) !== -1
+      validator: value => inArray(value, ['block', 'action']),
     },
     active: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     tag: {
       type: String,
-      default: "button"
+      default: 'button',
     },
 
     /**
@@ -66,14 +73,18 @@ export default {
      */
     inputType: {
       type: String,
-      default: "button"
+      default: 'button',
     },
 
     /**
-     * Used to build the Vue Router link, otherwise ignored
+     * Used to build the Vue Router link, otherwise ignored.
+     * It's not implemented yet
      */
     to: {
-      type: String
+      type: String,
+      validator: (value) => {
+        throw 'Not implemented';
+      },
     },
 
     /**
@@ -81,8 +92,8 @@ export default {
      */
     href: {
       type: String,
-      default: "#"
-    }
+      default: '#',
+    },
   },
   computed: {
     inputValue() {
@@ -98,10 +109,15 @@ export default {
       return this.size ? `btn-${this.size}` : null;
     },
     stateClasses() {
-      //Do it nicer:
-      // return `${this.active && "active"} ${this.disabled && "disabled"} ${this
-      //   .disabled && "disabled"}`.trim();
-    }
-  }
+      return {
+        active: this.active,
+        disabled: this.disabled,
+        loading: this.loading,
+      };
+    },
+    buttonListeners() {
+      return this.$listeners;
+    },
+  },
 };
 </script>

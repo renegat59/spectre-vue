@@ -7,9 +7,11 @@
 </template>
 
 <script>
+import { inArray } from '../utils/validators';
+
 const sizeValidator = {
   type: String,
-  validator: value => ['sm', 'lg'].indexOf(value) !== -1,
+  validator: value => inArray(value, ['sm', 'lg']),
 };
 
 export default {
