@@ -1,15 +1,21 @@
 <template>
-  <div :class="`divider${this.vertical ? '-vert' : ''}`" :data-content="content"></div>
+  <div :class="['btn-group', {
+    'btn-group-block': block
+  }]">
+  <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    vertical: {
+    block: {
       type: Boolean,
       default: false,
     },
-    content: String,
   },
 };
 </script>
+
+<style>
+</style>
