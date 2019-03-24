@@ -75,9 +75,9 @@
     </s-row>
     <s-row>
       <s-column>
-        <s-button success>Success button</s-button>
-        <s-button error>Error button</s-button>
-        <s-button primary :error="err" @click="onClick">Error button</s-button>
+        <s-button type="success">Success button</s-button>
+        <s-button type="error">Error button</s-button>
+        <s-button type="primary" @click="onClick">Error button</s-button>
       </s-column>
     </s-row>
   </s-conatiner>

@@ -11,7 +11,7 @@ import { inArray } from '../utils/validators';
 
 const sizeValidator = {
   type: String,
-  validator: value => inArray(value, ['sm', 'lg']),
+  validator: inArray(['sm', 'lg']),
 };
 
 export default {

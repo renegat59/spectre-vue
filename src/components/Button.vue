@@ -34,21 +34,21 @@
 // B. <a href="#">Submit</a>
 // C. <input type="submit" />
 
-import { isArray } from '../utils/validators';
+import { inArray } from '../utils/validators';
 
 export default {
   props: {
     type: {
       type: String,
-      validator: value => inArray(value, ['primary', 'link', 'success', 'error']),
+      validator: inArray(['primary', 'link', 'success', 'error']),
     },
     size: {
       type: String,
-      validator: value => inArray(value, ['lg', 'sm']),
+      validator: inArray(['lg', 'sm']),
     },
     form: {
       type: String,
-      validator: value => inArray(value, ['block', 'action']),
+      validator: inArray(['block', 'action']),
     },
     active: {
       type: Boolean,
@@ -82,9 +82,9 @@ export default {
      */
     to: {
       type: String,
-      validator: (value) => {
-        throw 'Not implemented';
-      },
+      // validator: (value) => {
+      //   throw 'Not implemented';
+      // },
     },
 
     /**

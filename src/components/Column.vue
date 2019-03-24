@@ -40,7 +40,7 @@ export default {
     lg: columnsTypedef,
     xl: columnsTypedef,
     autoOffset: {
-      validator: value => inArray(value, autoOffsets),
+      validator: inArray(autoOffsets),
     },
   },
   computed: {

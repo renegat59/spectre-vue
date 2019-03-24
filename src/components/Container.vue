@@ -15,7 +15,7 @@ export default {
   props: {
     grid: {
       type: String,
-      validator: value => inArray(value, screenSizes),
+      validator: inArray(screenSizes),
     },
   },
 };
