@@ -1,14 +1,19 @@
 <template>
   <div class="form-group">
-    <label v-if="label" class="form-label">
+    <s-label v-if="label">
       {{ label }}
-    </label>
+    </s-label>
     <slot></slot>
   </div>
 </template>
 
 <script>
+import Label from './Label.vue';
+
 export default {
+  components: {
+    's-label': Label,
+  },
   props: {
     label: {
       type: String,

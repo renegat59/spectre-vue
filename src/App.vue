@@ -104,6 +104,7 @@
         </s-form-group>
       </s-column>
       <s-column col="6">
+        <s-radio-group name="radio-name" :values="{a:'a', b:'b'}"></s-radio-group>
       </s-column>
     </s-row>
   </s-conatiner>
@@ -121,6 +122,7 @@ import Button from './components/Button.vue';
 import Input from './components/forms/Input.vue';
 import Textarea from './components/forms/Textarea.vue';
 import FormGroup from './components/forms/FormGroup.vue';
+import RadioGroup from './components/forms/RadioGroup.vue';
 
 export default {
   data() {
@@ -150,6 +152,7 @@ export default {
     's-input': Input,
     's-form-group': FormGroup,
     's-textarea': Textarea,
+    's-radio-group': RadioGroup
   },
 };
 </script>

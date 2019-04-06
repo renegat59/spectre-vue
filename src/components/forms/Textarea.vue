@@ -9,13 +9,17 @@
 </template>
 
 <script>
+import { isNumber } from '../../utils/validators';
+
 export default {
   props: {
     rows: {
-      type: Number,
+      type: [Number, String],
+      validator: isNumber,
     },
     cols: {
-      type: Number,
+      type: [Number, String],
+      validator: isNumber,
     },
   },
   computed: {
