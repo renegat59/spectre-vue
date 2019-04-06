@@ -49,7 +49,7 @@ export default {
     },
     colClasses() {
       return screenSizes
-        .map(size => (size ? `col-${size}-${this[size]}` : ''))
+        .map(size => (this[size] ? `col-${size}-${this[size]}` : ''))
         .filter(el => el !== '');
     },
   },
