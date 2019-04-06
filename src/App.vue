@@ -53,7 +53,7 @@
 
     <div v-color:bg="color">
       Hello world
-      <button @click="color='error'">Change to error</button>
+      <s-button @click="color='error'">Change to error</s-button>
     </div>
 
     <s-row>
@@ -80,6 +80,32 @@
         <s-button type="primary" @click="onClick">Error button</s-button>
       </s-column>
     </s-row>
+
+    <s-row>
+      <s-column col="12">
+        <h2>Forms</h2>
+      </s-column>
+    </s-row>
+
+    <s-row>
+      <s-column col="6">
+        <s-input v-model="inputmodel" />
+      </s-column>
+      <s-column col="6">
+        <s-form-group label="Form 1">
+          <s-input />
+        </s-form-group>
+      </s-column>
+    </s-row>
+    <s-row>
+      <s-column col="6">
+        <s-form-group label="Some textarea">
+          <s-textarea rows="5" placeholder="Test" />
+        </s-form-group>
+      </s-column>
+      <s-column col="6">
+      </s-column>
+    </s-row>
   </s-conatiner>
 </template>
 
@@ -92,12 +118,16 @@ import Hero from './components/Hero.vue';
 import Navbar from './components/Navbar.vue';
 import NavbarSection from './components/NavbarSection.vue';
 import Button from './components/Button.vue';
+import Input from './components/forms/Input.vue';
+import Textarea from './components/forms/Textarea.vue';
+import FormGroup from './components/forms/FormGroup.vue';
 
 export default {
   data() {
     return {
       color: 'warning',
       err: false,
+      inputmodel: 'ala',
     };
   },
   methods: {
@@ -117,6 +147,9 @@ export default {
     's-navbar': Navbar,
     's-navbar-section': NavbarSection,
     's-button': Button,
+    's-input': Input,
+    's-form-group': FormGroup,
+    's-textarea': Textarea,
   },
 };
 </script>
