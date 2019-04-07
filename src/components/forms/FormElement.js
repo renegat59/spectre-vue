@@ -3,9 +3,6 @@ export default {
     name: {
       type: String
     },
-    value: {
-      type: [String, Array]
-    },
     inline: {
       type: Boolean,
       default: false

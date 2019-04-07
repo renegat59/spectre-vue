@@ -114,7 +114,7 @@
     </s-row>
     <s-row>
       <s-column col="6">
-        <s-checkbox name="radio-name" :value="['c']" :options="{c:'c', d:'d'}"></s-checkbox>
+        <s-checkbox name="radio-name" :values="['c']" :options="{c:'ccc', d:'ddd'}"></s-checkbox>
       </s-column>
       <s-column col="6">
         <s-checkbox name="radio-name" inline :options="{c:'c', d:'d'}"></s-checkbox>

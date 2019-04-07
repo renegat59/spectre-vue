@@ -21,10 +21,14 @@ export default Vue.extend({
     options: {
       type: Object,
       required: true
+    },
+    values: {
+      type: Array,
+      default: []
     }
   },
   created() {
-    this.selecteValues = this.value;
+    this.selecteValues = this.values;
   }
 });
 </script>

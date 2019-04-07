@@ -21,6 +21,9 @@ export default Vue.extend({
     options: {
       type: Object,
       required: true
+    },
+    value: {
+      type: String
     }
   },
   created() {
