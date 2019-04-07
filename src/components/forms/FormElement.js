@@ -1,20 +1,24 @@
 export default {
   props: {
     name: {
-      type: String
+      type: String,
     },
     inline: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     formElementClasses() {
-      let classes = [];
-      if(this.inline) {
-        classes.push('form-inline')
+      const classes = [];
+      if (this.inline) {
+        classes.push('form-inline');
       }
       return classes;
-    }
-  }
+    },
+  },
 };

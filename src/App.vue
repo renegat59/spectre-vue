@@ -98,26 +98,20 @@
       </s-column>
     </s-row>
     <s-row>
-      <s-column col="6">
+      <s-column col="12">
         <s-form-group label="Some textarea">
           <s-textarea rows="5" placeholder="Test" />
         </s-form-group>
       </s-column>
-      <s-column col="6">
-        <s-radio name="radio-name" :options="{a:'aaa', b:'bbb'}" value="a"></s-radio>
-      </s-column>
     </s-row>
     <s-row>
-      <s-column col="12">
-        <s-radio name="radio-name" inline :options="{c:'c', d:'d'}"></s-radio>
-      </s-column>
-    </s-row>
-    <s-row>
+      <!-- <s-column col="6">
+        <s-radio name="radio-name" v-model="radioValues" inline :options="{c:'c', d:'d'}"></s-radio>
+      </s-column> -->
       <s-column col="6">
-        <s-checkbox name="radio-name" :values="['c']" :options="{c:'ccc', d:'ddd'}"></s-checkbox>
-      </s-column>
-      <s-column col="6">
-        <s-checkbox name="radio-name" inline :options="{c:'c', d:'d'}"></s-checkbox>
+        <s-radio v-model="radioModel" value="a" label="Aaa" />
+        <s-radio v-model="radioModel" value="b" label="Bbb" />
+        <span>{{ radioModel }}</span>
       </s-column>
     </s-row>
   </s-conatiner>
@@ -136,7 +130,6 @@ import Input from './components/forms/Input.vue';
 import Textarea from './components/forms/Textarea.vue';
 import FormGroup from './components/forms/FormGroup.vue';
 import Radio from './components/forms/Radio.vue';
-import Checkbox from './components/forms/Checkbox.vue';
 
 export default {
   data() {
@@ -144,6 +137,8 @@ export default {
       color: 'warning',
       err: false,
       inputmodel: 'ala',
+      radioValues: ['c'],
+      radioModel: 'a',
     };
   },
   methods: {
@@ -167,7 +162,6 @@ export default {
     's-form-group': FormGroup,
     's-textarea': Textarea,
     's-radio': Radio,
-    's-checkbox': Checkbox
   },
 };
 </script>

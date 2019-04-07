@@ -1,36 +1,47 @@
 <template>
-  <div>
-    <label v-for="(val, key) in options" :class="['form-radio', ...formElementClasses]" :key="key">
-      <input type="radio" :name="name" :value="key" v-model="selectedValue">
-      <i class="form-icon"></i> {{ val }}
-    </label>
-  </div>
+  <label :class="['form-radio', ...formElementClasses]">
+    <input
+      type="radio"
+      :checked="shouldBeChecked"
+      :value="value"
+      :name="name"
+      :disabled="disabled"
+      @change="updateInput"
+    >
+    <i class="form-icon"></i> {{ label }}
+  </label>
 </template>
-
 <script>
 import Vue from 'vue';
 import FormElement from './FormElement';
+
 export default Vue.extend({
   mixins: [FormElement],
-  data() {
-    return {
-      selectedValue: ''
-    }
+  model: {
+    prop: 'modelValue',
+    event: 'change',
   },
   props: {
-    options: {
-      type: Object,
-      required: true
-    },
     value: {
-      type: String
-    }
+      type: String,
+    },
+    modelValue: {
+      default: '',
+    },
+    label: {
+      type: String,
+      required: true,
+    },
   },
-  created() {
-    this.selectedValue = this.value;
-  }
+  computed: {
+    shouldBeChecked() {
+      return this.modelValue === this.value;
+    },
+  },
+  methods: {
+    updateInput() {
+      this.$emit('change', this.value);
+    },
+  },
 });
 </script>
-
-<style>
-</style>
