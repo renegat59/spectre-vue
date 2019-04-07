@@ -104,7 +104,20 @@
         </s-form-group>
       </s-column>
       <s-column col="6">
-        <s-radio-group name="radio-name" :values="{a:'a', b:'b'}"></s-radio-group>
+        <s-radio name="radio-name" :options="{a:'aaa', b:'bbb'}" value="a"></s-radio>
+      </s-column>
+    </s-row>
+    <s-row>
+      <s-column col="12">
+        <s-radio name="radio-name" inline :options="{c:'c', d:'d'}"></s-radio>
+      </s-column>
+    </s-row>
+    <s-row>
+      <s-column col="6">
+        <s-checkbox name="radio-name" :value="['c']" :options="{c:'c', d:'d'}"></s-checkbox>
+      </s-column>
+      <s-column col="6">
+        <s-checkbox name="radio-name" inline :options="{c:'c', d:'d'}"></s-checkbox>
       </s-column>
     </s-row>
   </s-conatiner>
@@ -122,7 +135,8 @@ import Button from './components/Button.vue';
 import Input from './components/forms/Input.vue';
 import Textarea from './components/forms/Textarea.vue';
 import FormGroup from './components/forms/FormGroup.vue';
-import RadioGroup from './components/forms/RadioGroup.vue';
+import Radio from './components/forms/Radio.vue';
+import Checkbox from './components/forms/Checkbox.vue';
 
 export default {
   data() {
@@ -152,7 +166,8 @@ export default {
     's-input': Input,
     's-form-group': FormGroup,
     's-textarea': Textarea,
-    's-radio-group': RadioGroup
+    's-radio': Radio,
+    's-checkbox': Checkbox
   },
 };
 </script>
